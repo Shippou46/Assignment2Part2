@@ -1,12 +1,16 @@
 package assignment1;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Part {
 	private String partNumber;
 	private String partName;
 	private String vendor;
 	private int quantity;
+        private int idNumber;
+
+        Random randomNumber = new Random();
 	
 	private ArrayList<PartObserver> observers;
 	
@@ -25,9 +29,19 @@ public class Part {
 		partName = pName;
 		vendor = v;
 		quantity = q;
+                idNumber = 0;
 		
 		observers = new ArrayList<PartObserver>();
 	}
+
+        public int getIDNumber(){
+                idNumber = randomNumber.nextInt(1000000);
+                return idNumber;
+        }
+
+        public void setIDNumber(int idNumber){
+                this.idNumber = idNumber;
+        }
 
 	public String getPartNumber() {
 		return partNumber;
@@ -69,11 +83,12 @@ public class Part {
 		observers.add(o);
 	}
 	
-	public void setFields(String pNum, String pName, String v, int q) {
+	public void setFields(String pNum, String pName, String v, int q, int id) {
 		setPartNumber(pNum);
 		setPartName(pName);
 		setVendor(v);
 		setQuantity(q);
+                setIDNumber(id);
 		updateObservers();
 	}
 	

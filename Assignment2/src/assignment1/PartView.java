@@ -17,6 +17,7 @@ public class PartView extends JFrame implements PartObserver {
 	private JTextField tfPartName;
 	private JTextField tfVendor;
 	private JTextField tfQty;
+        private JTextField tfID;
 	
 	private Part part;
 	private InventoryController invC;
@@ -28,7 +29,7 @@ public class PartView extends JFrame implements PartObserver {
 		this.setLayout(new BorderLayout());
 		
 		JPanel panel = new JPanel();
-		panel.setLayout(new GridLayout(4,2));
+		panel.setLayout(new GridLayout(5,2));
 		
 		panel.add(new JLabel("Part #"));
 		tfPartNum = new JTextField();
@@ -45,6 +46,10 @@ public class PartView extends JFrame implements PartObserver {
 		panel.add(new JLabel("Quantity"));
 		tfQty = new JTextField();
 		panel.add(tfQty);
+
+                panel.add(new JLabel("ID"));
+                tfID = new JTextField();
+                panel.add(tfID);
 
 		this.add(panel, BorderLayout.CENTER);
 		
@@ -81,6 +86,7 @@ public class PartView extends JFrame implements PartObserver {
 			tfPartName.setText(part.getPartName());
 			tfVendor.setText(part.getVendor());
 			tfQty.setText(Integer.toString(part.getQuantity()));
+			tfID.setText(Integer.toString(part.getIDNumber()));
 			this.setTitle("Editing " + p.getPartName());
 		} else
 			this.setTitle("Adding new part");
@@ -97,6 +103,7 @@ public class PartView extends JFrame implements PartObserver {
 			tfPartName.setText(part.getPartName());
 			tfVendor.setText(part.getVendor());
 			tfQty.setText(Integer.toString(part.getQuantity()));
+			tfID.setText(Integer.toString(pat.getIDNumber()));
 			this.setTitle("Editing " + part.getPartName());
 		}
 	}
