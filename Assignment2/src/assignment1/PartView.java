@@ -5,9 +5,12 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -17,7 +20,8 @@ public class PartView extends JFrame implements PartObserver {
 	private JTextField tfPartName;
 	private JTextField tfVendor;
 	private JTextField tfQty;
-	
+	private JMenu uMenu;	
+
 	private Part part;
 	private InventoryController invC;
 	
@@ -25,6 +29,18 @@ public class PartView extends JFrame implements PartObserver {
 		part = p;
 		invC = i;
 		
+
+	JMenuBar menuBar = new JMenuBar()
+	setJMenuBar(menuBar);
+
+	uMenu = new JMenu("Units");
+	menuBar.add(uMenu);
+
+	JMenuItem linearFeet = new JMenuItem("Linear Feet");
+	JMenuItem pieces = new JMenuItem("Pieces");
+	uMenu.add(linearFeet);
+	uMenu.add(pieces);
+
 		this.setLayout(new BorderLayout());
 		
 		JPanel panel = new JPanel();
@@ -80,7 +96,7 @@ public class PartView extends JFrame implements PartObserver {
 			tfPartNum.setText(part.getPartNumber());
 			tfPartName.setText(part.getPartName());
 			tfVendor.setText(part.getVendor());
-			tfQty.setText(Integer.toString(part.getQuantity()));
+			tfQty.setText(Integer.toString(part.getQuantity()) + " " + Part.getQuantityUnit());
 			this.setTitle("Editing " + p.getPartName());
 		} else
 			this.setTitle("Adding new part");
@@ -96,7 +112,7 @@ public class PartView extends JFrame implements PartObserver {
 			tfPartNum.setText(part.getPartNumber());
 			tfPartName.setText(part.getPartName());
 			tfVendor.setText(part.getVendor());
-			tfQty.setText(Integer.toString(part.getQuantity()));
+			tfQty.setText(Integer.toString(part.getQuantity()) + " " + Part.getQuantityUnit());
 			this.setTitle("Editing " + part.getPartName());
 		}
 	}
@@ -106,5 +122,15 @@ public class PartView extends JFrame implements PartObserver {
 		this.setVisible(false);
 		
 	}
+
+   public void registerListener(InventoryController controller) {
+      Component[] components = uMenu.getMenuComponents();
+      for (Component component : components) {
+         if (component instanceof AbstractButton) {
+		AbstractButton button = (AbstractButton) component;
+		button.addActionListener((ActionListener) controller);
+         }
+      }
+   }
 
 }

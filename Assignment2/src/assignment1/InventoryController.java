@@ -1,6 +1,9 @@
 package assignment1;
 
-public class InventoryController {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class InventoryController implements ActionListener{
 	private Inventory inv;
 	
 	public InventoryController(Inventory i) {
@@ -47,4 +50,16 @@ public class InventoryController {
 		}
 		return null;
 	}
+
+  @Override
+   public void actionPerformed(ActionEvent e) {
+      String choice = e.getActionCommand();
+      if(choice.equals("Linear Feet")){
+         Part.setQuantityUnit(choice);
+      }
+      if(choice.equals("Pieces")){
+         Part.setQuantityUnit(choice);
+      }
+      
+   }
 }
