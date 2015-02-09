@@ -41,7 +41,7 @@ public class InventoryController implements ActionListener{
 					view.showError("Part Name already exists!");
 					return null;
 				}
-				p.setFields(pNum, pName, v, q);
+				p.setFields(pNum, pName, v, q, id);
 				inv.updateObservers();
 				return p;
 			} catch(IllegalArgumentException e) {
