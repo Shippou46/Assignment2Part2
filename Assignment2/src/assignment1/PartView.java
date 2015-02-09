@@ -17,6 +17,16 @@ public class PartView extends JFrame implements PartObserver {
 	private JTextField tfPartName;
 	private JTextField tfVendor;
 	private JTextField tfQty;
+<<<<<<< Weasley:Assignment2/src/assignment1/PartView.java
+=======
+<<<<<<< HEAD:Assignment2/src/assignment1/PartView.java
+<<<<<<< HEAD:Assignment2/src/assignment1/PartView.java
+	private JMenu uMenu;	
+
+=======
+=======
+>>>>>>> Weasley:Assignment2/src/assignment1/PartView.java
+>>>>>>> local:Assignment2/src/assignment1/PartView.java
         private JTextField tfID;
 	
 	private Part part;
@@ -87,6 +97,13 @@ public class PartView extends JFrame implements PartObserver {
 			tfVendor.setText(part.getVendor());
 			tfQty.setText(Integer.toString(part.getQuantity()));
 			tfID.setText(Integer.toString(part.getIDNumber()));
+<<<<<<< Weasley:Assignment2/src/assignment1/PartView.java
+=======
+<<<<<<< HEAD:Assignment2/src/assignment1/PartView.java
+>>>>>>> Weasley:Assignment2/src/assignment1/PartView.java
+=======
+>>>>>>> Weasley:Assignment2/src/assignment1/PartView.java
+>>>>>>> local:Assignment2/src/assignment1/PartView.java
 			this.setTitle("Editing " + p.getPartName());
 		} else
 			this.setTitle("Adding new part");
@@ -104,6 +121,13 @@ public class PartView extends JFrame implements PartObserver {
 			tfVendor.setText(part.getVendor());
 			tfQty.setText(Integer.toString(part.getQuantity()));
 			tfID.setText(Integer.toString(pat.getIDNumber()));
+<<<<<<< Weasley:Assignment2/src/assignment1/PartView.java
+=======
+<<<<<<< HEAD:Assignment2/src/assignment1/PartView.java
+>>>>>>> Weasley:Assignment2/src/assignment1/PartView.java
+=======
+>>>>>>> Weasley:Assignment2/src/assignment1/PartView.java
+>>>>>>> local:Assignment2/src/assignment1/PartView.java
 			this.setTitle("Editing " + part.getPartName());
 		}
 	}
